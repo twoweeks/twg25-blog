@@ -1,0 +1,54 @@
+---
+import Container from './Container.astro';
+
+import BaseHead from './BaseHead.astro';
+import Header from './Header.astro';
+import Sidebar from './Sidebar.astro';
+import Footer from './Footer.astro';
+
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+// Import the global.css file here so that it is included on
+// all pages through the use of the <Base /> component.
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+
+		<style is:global>
+			body {
+				font-size: 16px;
+			}
+			.hidden {
+				position: absolute;
+				width: 1px;
+				height: 1px;
+				overflow: hidden;
+				clip: rect(0 0 0 0);
+			}
+		</style>
+	</head>
+
+	<body>
+		<Container>
+			<Header />
+
+			<main class="content">
+				<slot />
+			</main>
+
+			<Sidebar />
+
+			<Footer />
+		</Container>
+	</body>
+</html>
+
+<style>
+	.content {
+		grid-area: content;
+	}
+</style>

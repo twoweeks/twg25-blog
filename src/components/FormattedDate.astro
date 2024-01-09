@@ -1,0 +1,23 @@
+---
+interface Props {
+	date: Date;
+}
+
+const { date } = Astro.props;
+---
+
+<time datetime={date.toISOString()}>
+	{
+		date.toLocaleDateString('ru', {
+			dateStyle: 'medium'
+		})
+	}
+</time>
+
+<style>
+	time {
+		font-size: 0.8125em; /* 13px /16 */
+		color: var(--darkgray);
+		word-spacing: -0.5px;
+	}
+</style>
