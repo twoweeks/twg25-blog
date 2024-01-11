@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
+
 import Container from '../components/Container.astro';
 
 import BaseHead from '../components/BaseHead.astro';
@@ -14,29 +16,17 @@ import '../styles/global.css';
 ---
 
 <!doctype html>
-<html lang="ru">
+<html lang="ru" transition:animate="none">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-
-		<style is:global>
-			body {
-				font-size: 16px;
-			}
-			.hidden {
-				position: absolute;
-				width: 1px;
-				height: 1px;
-				overflow: hidden;
-				clip: rect(0 0 0 0);
-			}
-		</style>
+		<ViewTransitions />
 	</head>
 
 	<body>
 		<Container>
 			<Header />
 
-			<main class="content">
+			<main class="content" transition:animate="fade">
 				<slot />
 			</main>
 
