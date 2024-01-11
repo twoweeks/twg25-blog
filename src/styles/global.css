@@ -24,9 +24,8 @@ body {
 p:last-child {
 	margin-bottom: 0;
 }
-p,
-.tmpl-post li {
-	line-height: 1.45;
+p, ul li, ol li {
+	line-height: 1.75;
 }
 a[href] {
 	color: var(--blue);
@@ -35,7 +34,7 @@ a[href]:visited {
 	color: var(--navy);
 }
 main {
-	padding: 1rem;
+	padding: 15px;
 }
 main :first-child {
 	margin-top: 0;
