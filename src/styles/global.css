@@ -92,6 +92,13 @@ code {
 	color: inherit; /* override del, ins, mark defaults */
 }
 
+blockquote {
+	padding: 5px 10px;
+	margin: 0;
+
+	background-color: #efefef;
+}
+
 /* allow highlighting empty lines */
 .highlight-line:empty:before {
 	content: ' ';

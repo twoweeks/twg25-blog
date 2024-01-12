@@ -18,7 +18,7 @@ const { Content } = await post.render();
 ---
 
 <Base pageTitle={post.data.title}>
-	<BlogPost {...post.data}>
+	<BlogPost {...post.data} slug={post.slug}>
 		<Content />
 	</BlogPost>
 </Base>
