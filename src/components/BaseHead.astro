@@ -1,22 +1,22 @@
 ---
-import headerImage from '../shared/assets/header.webp'
+import faviconImage from '../shared/assets/favicon.webp';
+import shareImage from '../shared/assets/header.webp';
 
 interface Props {
 	title: string;
 	description: string;
-	image?: string;
 }
 
-const { title, description, image = headerImage.src } = Astro.props;
+const { title, description } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const shareImageURL = new URL(image, Astro.url)
+const shareImageURL = new URL(shareImage.src, Astro.url);
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href={faviconImage.src} />
 <meta name="generator" content={Astro.generator} />
 
 <!-- Canonical URL -->
