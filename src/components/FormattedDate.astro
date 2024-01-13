@@ -1,7 +1,7 @@
 ---
 interface Props {
 	date: Date;
-	mini?: boolean
+	mini?: boolean;
 }
 
 const { date, mini } = Astro.props;
@@ -10,7 +10,7 @@ const { date, mini } = Astro.props;
 <time class={mini ? 'mini-time' : null} datetime={date.toISOString()}>
 	{
 		date.toLocaleDateString('ru', {
-			dateStyle: 'medium'
+			dateStyle: 'medium',
 		})
 	}
 </time>

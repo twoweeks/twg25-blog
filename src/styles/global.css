@@ -25,7 +25,9 @@ body {
 p:last-child {
 	margin-bottom: 0;
 }
-p, ul li, ol li {
+p,
+ul li,
+ol li {
 	line-height: 1.75;
 }
 a[href] {

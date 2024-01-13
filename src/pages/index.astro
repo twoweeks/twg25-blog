@@ -5,7 +5,7 @@ import Base from '../layouts/Base.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 
 const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
 
@@ -14,9 +14,18 @@ const posts = (await getCollection('blog')).sort(
 		<div>
 			<p style="font-size: 1.2em;">Добро пожаловать на конкурс Two Weeks Game!</p>
 
-			<p>Основная цель конкурса заключается в том, чтобы за две недели сделать игру на заданную тему. Для нас не важен твой опыт работы, прямота твоих рук и наличие каких-либо способностей: мы просто хотим чтобы ты показал что ты любишь игры так же, как любим их мы, что ты полон свежих идей и готов к их воплощению любыми средствами, которые покажутся тебе уместными.</p>
+			<p>
+				Основная цель конкурса заключается в том, чтобы за две недели сделать игру на заданную тему.
+				Для нас не важен твой опыт работы, прямота твоих рук и наличие каких-либо способностей: мы
+				просто хотим чтобы ты показал что ты любишь игры так же, как любим их мы, что ты полон
+				свежих идей и готов к их воплощению любыми средствами, которые покажутся тебе уместными.
+			</p>
 
-			<p>Суть конкурса, в первую очередь, в том, чтобы все принимающие участие в нём получили от этого удовольствие и он оставил после себя приятные воспоминания, ну а уже потом — места на пьедестале и денежные призы.</p>
+			<p>
+				Суть конкурса, в первую очередь, в том, чтобы все принимающие участие в нём получили от
+				этого удовольствие и он оставил после себя приятные воспоминания, ну а уже потом — места на
+				пьедестале и денежные призы.
+			</p>
 
 			<p class="donate"><a href="/page/rules/#-о-призовом-фонде">Поддержать конкурс</a></p>
 		</div>
@@ -36,15 +45,19 @@ const posts = (await getCollection('blog')).sort(
 
 		<ul class="posts">
 			{
-				posts.map((post) => (
+				posts.map(post => (
 					<li class="post">
 						<div>
-							<a href={`/blog/${post.slug}/`} class="post__link">{post.data.title}</a>
-							{' '}
+							<a href={`/blog/${post.slug}/`} class="post__link">
+								{post.data.title}
+							</a>{' '}
 							<FormattedDate date={post.data.pubDate} mini />
 						</div>
 						<div>
-							{post.data.description ? `${post.data.description} – ` : ''}<a href={`/blog/${post.slug}/`} class="post__link">читать далее</a>
+							{post.data.description ? `${post.data.description} – ` : ''}
+							<a href={`/blog/${post.slug}/`} class="post__link">
+								читать далее
+							</a>
 						</div>
 					</li>
 				))
@@ -88,11 +101,11 @@ const posts = (await getCollection('blog')).sort(
 		font-weight: bold;
 
 		&::before {
-			content: '>> '
+			content: '>> ';
 		}
 
 		&::after {
-			content: ' <<'
+			content: ' <<';
 		}
 	}
 

@@ -22,8 +22,8 @@ interface Props {
 const { pageTitle, description = SITE_DESCRIPTION } = Astro.props;
 
 const buildTitle = (siteTitle: string, pageTitle?: string) => {
-	return [pageTitle, siteTitle].filter(Boolean).join(' – ')
-}
+	return [pageTitle, siteTitle].filter(Boolean).join(' – ');
+};
 ---
 
 <!doctype html>
@@ -45,11 +45,9 @@ const buildTitle = (siteTitle: string, pageTitle?: string) => {
 
 			<Footer />
 		</Container>
-	</body>
+	</body><style>
+		.content {
+			grid-area: content;
+		}
+	</style>
 </html>
-
-<style>
-	.content {
-		grid-area: content;
-	}
-</style>

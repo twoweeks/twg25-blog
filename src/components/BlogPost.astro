@@ -17,7 +17,9 @@ const { slug, title, pubDate, updatedDate } = Astro.props;
 		<FormattedDate date={pubDate} />
 		{
 			updatedDate && (
-				<span>(обновлено <FormattedDate date={updatedDate} />)</span>
+				<span>
+					(обновлено <FormattedDate date={updatedDate} />)
+				</span>
 			)
 		}
 	</div>
