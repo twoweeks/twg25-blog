@@ -11,7 +11,7 @@ import headerImage from '../shared/assets/header.webp';
 		class="header__image"
 		style={`--im-w: ${headerImage.width}px; --im-h: ${headerImage.height}px;`}
 	>
-		<a href="/" rel="home"><Picture src={headerImage} densities={[1, 2]} alt={SITE_TITLE} /></a>
+		<a href="/" rel="home"><Picture src={headerImage} width={headerImage.width / 2} densities={[1, 2]} alt={SITE_TITLE} /></a>
 	</div>
 </header>
 
