@@ -1,14 +1,17 @@
 ---
-import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
 
 import { SITE_TITLE } from '../consts';
-import headerImage from '../shared/assets/header.webp'
+import headerImage from '../shared/assets/header.webp';
 ---
 
 <header class="header">
 	<h1 class="header__title sr-only"><a href="/" rel="home">{SITE_TITLE}</a></h1>
-	<div class="header__image" style="--im-w: 1080px; --im-h: 400px;">
-		<a href="/" rel="home"><Image src={headerImage} width="1080" height="400" alt={SITE_TITLE}/></a>
+	<div
+		class="header__image"
+		style={`--im-w: ${headerImage.width}px; --im-h: ${headerImage.height}px;`}
+	>
+		<a href="/" rel="home"><Picture src={headerImage} densities={[1, 2]} alt={SITE_TITLE} /></a>
 	</div>
 </header>
 
@@ -17,12 +20,6 @@ import headerImage from '../shared/assets/header.webp'
 		grid-area: header;
 
 		border-bottom: 1px dashed var(--lightgray);
-	}
-
-	header:after {
-		content: '';
-		display: table;
-		clear: both;
 	}
 
 	.header__title {
@@ -38,36 +35,15 @@ import headerImage from '../shared/assets/header.webp'
 	}
 
 	.header__image a {
-		display: flex;
-		overflow: hidden;
-	}
-
-	.header__image img {
 		display: block;
 	}
 
 	.header__image img {
+		display: block;
+
 		width: 100%;
 		height: calc(100% / (var(--im-w) / var(--im-h)));
 
 		object-fit: contain;
-	}
-
-	@media screen and (max-width: 768px) {
-		.header__image a {
-			justify-content: center;
-			align-items: flex-start;
-			height: 150px;
-		}
-
-		.header__image img {
-			width: 160%;
-		}
-	}
-
-	@media screen and (max-width: 576px) {
-		.header__image a {
-			height: 100px;
-		}
 	}
 </style>
