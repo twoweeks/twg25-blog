@@ -53,7 +53,7 @@ const { date, text, endText } = Astro.props;
 					.map(this.renderNumber)
 					.join(':');
 
-				this.innerHTML = `<div>Конкурс начнется через:</div><div>${time}<div/>`;
+				this.innerHTML = `<div>${text}:</div><div>${time}</div>`;
 			}, 500);
 		}
 
