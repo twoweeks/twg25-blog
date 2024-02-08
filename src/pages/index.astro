@@ -16,10 +16,12 @@ const posts = (await getCollection('blog')).sort(
 			<p style="font-size: 1.2em;">Добро пожаловать на конкурс Two Weeks Game!</p>
 
 			<TimerToDate
-				date="Feb 10 2024 00:00:00 GMT+03:00"
+				date="Feb 12 2024 00:00:00 GMT+03:00"
 				text="Сдача финальных версий через"
 				endText="Сдача финальных версий окончена"
 			/>
+
+			<p class="highlight"><a href="https://forms.gle/ye1op5VfCXq5JGoL9" target="_blank">Отправить финальную версию</a></p>
 
 			<p>
 				Основная цель конкурса заключается в том, чтобы за две недели сделать игру на заданную тему.
@@ -33,8 +35,6 @@ const posts = (await getCollection('blog')).sort(
 				этого удовольствие и он оставил после себя приятные воспоминания, ну а уже потом — места на
 				пьедестале и денежные призы.
 			</p>
-
-			<p class="donate"><a href="/page/rules/#-о-призовом-фонде">Поддержать конкурс</a></p>
 		</div>
 
 		<!-- <nav class="heading__nav">
@@ -101,7 +101,7 @@ const posts = (await getCollection('blog')).sort(
 		content: ' · ';
 	}
 
-	.donate {
+	.highlight {
 		text-transform: uppercase;
 		font-weight: bold;
 
