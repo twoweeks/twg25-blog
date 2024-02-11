@@ -35,7 +35,9 @@ const { gamesList } = Astro.props;
 						<p class="game__info__tools">Используемые инструменты: {gameInfo.tools}</p>
 					)}
 
-					<p class="game__info__genre">Жанр: {gameInfo.genre ?? 'Жанра нет'}</p>
+					{gameInfo.genre && (
+						<p class="game__info__genre">Жанр: {gameInfo.genre}</p>
+					)}
 
 					<p class="game__info__description">{gameInfo.description ?? 'Описания нет'}</p>
 
