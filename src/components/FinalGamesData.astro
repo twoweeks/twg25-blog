@@ -1,0 +1,26 @@
+---
+import path from 'node:path'
+
+import type { ImageMetadata } from 'astro'
+
+import games from '../data/games-final.json'
+import gamesLinks from '../data/games-final-links.json'
+
+import GamesList from './GamesList.astro'
+
+const images = await Astro.glob<{ default: ImageMetadata }>('../shared/images/final-post/*.jpg');
+
+const getImageNumber = (image: ImageMetadata) => {
+	return Number(new URL(image.src, Astro.url).pathname.split(path.sep).at(-1)?.split('.').at(0))
+}
+
+const sortedImages = [...images].sort((a,b) => getImageNumber(a.default) - getImageNumber(b.default) )
+
+const gamesWithData = games.map((gameInfo, index) => {
+	return { ...gameInfo, screenshot: sortedImages[index]?.default, archive: gamesLinks[index] }
+})
+
+const filtredGames = gamesWithData.filter(gameInfo => gameInfo.archive)
+---
+
+<GamesList gamesList={filtredGames} />
