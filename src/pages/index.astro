@@ -3,7 +3,6 @@ import { getCollection } from 'astro:content';
 
 import Base from '../layouts/Base.astro';
 import FormattedDate from '../components/FormattedDate.astro';
-import TimerToDate from '../components/TimerToDate.astro';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -15,13 +14,7 @@ const posts = (await getCollection('blog')).sort(
 		<div>
 			<p style="font-size: 1.2em;">Добро пожаловать на конкурс Two Weeks Game!</p>
 
-			<TimerToDate
-				date="Feb 15 2024 00:00:00 GMT+03:00"
-				text="Голосование"
-				endText="Голосование окончено"
-			/>
-
-			<p class="highlight"><a href="https://forms.gle/hPss7CMwLPF53JET9" target="_blank">Форма голосования</a></p>
+			<p class="highlight"><a href="/blog/9-results/">Итоги конкурса</a></p>
 
 			<p>
 				Основная цель конкурса заключается в том, чтобы за две недели сделать игру на заданную тему.
