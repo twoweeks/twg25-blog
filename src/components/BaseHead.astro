@@ -1,16 +1,44 @@
 ---
 import faviconImage from '../shared/assets/favicon.webp';
 import shareImage from '../shared/assets/header.webp';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 interface Props {
 	title: string;
 	description: string;
 }
 
-const { title, description } = Astro.props;
+const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const shareImageURL = new URL(shareImage.src, Astro.url);
+
+const ldJson = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Two Weeks Game 25 &#8212; конкурс по разработке игр",
+  "alternateName": "TWG 25",
+  "description": SITE_DESCRIPTION,
+  "startDate": "2024-01-26",
+  "endDate": "2024-02-12",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+  "organizer": {
+    "@type": "Organization",
+    "name": "Конкурс Two Weeks Game",
+    "url": "https://twoweeksgame.ru"
+  },
+  "superEvent": {
+    "@type": "EventSeries",
+    "name": "Конкурс Two Weeks Game",
+    "url": "https://twoweeksgame.ru"
+  },
+  "location": {
+    "@type": "VirtualLocation",
+    "url": Astro.site
+  },
+  "inLanguage": "ru-RU"
+}
 ---
 
 <!-- Global Metadata -->
@@ -40,3 +68,6 @@ const shareImageURL = new URL(shareImage.src, Astro.url);
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={shareImageURL} />
+
+<!-- JSON for Linked Data -->
+<script type="application/ld+json" set:html={JSON.stringify(ldJson)} is:inline />
